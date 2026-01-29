@@ -40,7 +40,7 @@ public class Bob {
                     System.out.println("    ___________________________");
                 }
             }
-        } while (!line.toLowerCase().contains("bye")); //Line containing bye
+        } while (!line.toLowerCase().contains("bye")); //Lines containing bye
         System.out.println("    Bye. Hope to see you again soon!");
         System.out.println("    ___________________________");
 
