@@ -45,8 +45,14 @@ public class Bob {
                     continue;
                 }
 
+                // Check for todo command (exact match or starts with "todo ")
+                if (line.equalsIgnoreCase("todo") || line.toLowerCase().startsWith("todo ")) {
+                    if (line.equalsIgnoreCase("todo")) {
+                        System.out.println("    Error: Todo description cannot be empty.");
+                        System.out.println("    ___________________________");
+                        continue;
+                    }
 
-                if (line.toLowerCase().startsWith("todo ")) {
                     String description = line.substring(5).trim();
                     if (description.isEmpty()) {
                         System.out.println("    Error: Todo description cannot be empty.");
@@ -60,8 +66,14 @@ public class Bob {
                     continue;
                 }
 
-                //handle deadline commands
-                if (line.toLowerCase().startsWith("deadline ")) {
+                //handle deadline commands (exact match or starts with "deadline ")
+                if (line.equalsIgnoreCase("deadline") || line.toLowerCase().startsWith("deadline ")) {
+                    if (line.equalsIgnoreCase("deadline")) {
+                        System.out.println("    Error: Deadline must have description and /by time.");
+                        System.out.println("    ___________________________");
+                        continue;
+                    }
+
                     String rest = line.substring(9).trim(); //9 because 'deadline ' is 9 char long
                     String[] parts = rest.split(" /by ");
                     if (parts.length < 2) {
@@ -78,10 +90,16 @@ public class Bob {
                     continue;
                 }
 
-                //handle event commands
-                if (line.toLowerCase().startsWith("event ")) {
+                //handle event commands (exact match or starts with "event ")
+                if (line.equalsIgnoreCase("event") || line.toLowerCase().startsWith("event ")) {
+                    if (line.equalsIgnoreCase("event")) {
+                        System.out.println("    Error: Event must have description, /from and /to times.");
+                        System.out.println("    ___________________________");
+                        continue;
+                    }
+
                     String rest = line.substring(6).trim(); //6 because 'event ' is 6 char long
-                    String[] parts = rest.split(" /from | /to");
+                    String[] parts = rest.split(" /from | /to ");
                     if (parts.length < 3) {
                         System.out.println("    Error: Event must have description, /from and /to times.");
                     } else {
@@ -97,8 +115,14 @@ public class Bob {
                     continue;
                 }
 
-                //Handle mark command
-                if (line.toLowerCase().startsWith("mark ")) {
+                //Handle mark command (exact match or starts with "mark ")
+                if (line.equalsIgnoreCase("mark") || line.toLowerCase().startsWith("mark ")) {
+                    if (line.equalsIgnoreCase("mark")) {
+                        System.out.println("    Error: Please specify a task number.");
+                        System.out.println("    ___________________________");
+                        continue;
+                    }
+
                     try  {
                         String[] parts = line.split(" ");
                         int taskNum = Integer.parseInt(parts[1]); //Convert the string digit to int digit
@@ -121,8 +145,14 @@ public class Bob {
                     continue;
                 }
 
-                //Handle unmark command
-                if (line.toLowerCase().startsWith("unmark ")) {
+                //Handle unmark command (exact match or starts with "unmark ")
+                if (line.equalsIgnoreCase("unmark") || line.toLowerCase().startsWith("unmark ")) {
+                    if (line.equalsIgnoreCase("unmark")) {
+                        System.out.println("    Error: Please specify a task number.");
+                        System.out.println("    ___________________________");
+                        continue;
+                    }
+
                     try  {
                         String[] parts = line.split(" ");
                         int taskNum = Integer.parseInt(parts[1]); //Convert the string digit to int digits
@@ -146,16 +176,16 @@ public class Bob {
                 }
 
                 //Added personality: Check if the line input consist of handsome or beautiful
-                else if (pattern.matcher(line).find()) {
+                if (pattern.matcher(line).find()) {
                     System.out.println("    Nonono, you are ;)");
                     System.out.println("    ___________________________");
+                    continue;
                 }
+
                 //Otherwise, add a task
-                else {
-                    tasks.add(new Task(line));
-                    System.out.println("    " + "added: " + line);
-                    System.out.println("    ___________________________");
-                }
+                tasks.add(new Task(line));
+                System.out.println("    added: " + line);
+                System.out.println("    ___________________________");
             }
         } while (!line.toLowerCase().contains("bye")); //Lines containing bye
         System.out.println("    Bye. Hope to see you again soon!");

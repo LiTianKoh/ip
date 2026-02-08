@@ -1,7 +1,7 @@
 list
 todo read book
 todo 
-todo    (with spaces)
+todo    
 todo exercise daily
 deadline submit report /by 2024-09-30
 deadline submit report/by 2024-09-30 (no space)

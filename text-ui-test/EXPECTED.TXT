@@ -22,19 +22,17 @@ Hello from
     Error: Todo description cannot be empty.
     ___________________________
     ___________________________
-    Got it. I've added this task:
-    [T][ ] (with spaces)
-    Now you have 2 tasks in the list.
+    Error: Todo description cannot be empty.
     ___________________________
     ___________________________
     Got it. I've added this task:
     [T][ ] exercise daily
-    Now you have 3 tasks in the list.
+    Now you have 2 tasks in the list.
     ___________________________
     ___________________________
     Got it. I've added this task:
     [D][ ] submit report (by: 2024-09-30)
-    Now you have 4 tasks in the list.
+    Now you have 3 tasks in the list.
     ___________________________
     ___________________________
     Error: Deadline must have description and /by time.
@@ -46,17 +44,17 @@ Hello from
     Error: Deadline must have description and /by time.
     ___________________________
     ___________________________
-    added: deadline
+    Error: Deadline must have description and /by time.
     ___________________________
     ___________________________
     Got it. I've added this task:
     [D][ ] return library books (by: tomorrow 5pm)
-    Now you have 6 tasks in the list.
+    Now you have 4 tasks in the list.
     ___________________________
     ___________________________
     Got it. I've added this task:
     [E][ ] team meeting (from: 2pm to: 4pm)
-    Now you have 7 tasks in the list.
+    Now you have 5 tasks in the list.
     ___________________________
     ___________________________
     Error: Event must have description, /from and /to times.
@@ -68,12 +66,12 @@ Hello from
     Error: Event must have description, /from and /to times.
     ___________________________
     ___________________________
-    added: event
+    Error: Event must have description, /from and /to times.
     ___________________________
     ___________________________
     Got it. I've added this task:
     [E][ ] conference (from: 9am to: 6pm)
-    Now you have 9 tasks in the list.
+    Now you have 6 tasks in the list.
     ___________________________
     ___________________________
     Nice! I've marked this task as done: 
@@ -81,7 +79,7 @@ Hello from
     ___________________________
     ___________________________
     Nice! I've marked this task as done: 
-    2.[T][X] (with spaces)
+    2.[T][X] exercise daily
     ___________________________
     ___________________________
     Error: Task number 0 does not exist.
@@ -96,7 +94,7 @@ Hello from
     Error: Please specify a valid task number.
     ___________________________
     ___________________________
-    added: mark
+    Error: Please specify a task number.
     ___________________________
     ___________________________
     Nice! I've marked this task as done: 
@@ -108,7 +106,7 @@ Hello from
     ___________________________
     ___________________________
     Ok, I've marked this task as not done yet: 
-    2.[T][ ] (with spaces)
+    2.[T][ ] exercise daily
     ___________________________
     ___________________________
     Error: Task number 0 does not exist.
@@ -123,7 +121,7 @@ Hello from
     Error: Please specify a valid task number.
     ___________________________
     ___________________________
-    added: unmark
+    Error: Please specify a task number.
     ___________________________
     ___________________________
     Nonono, you are ;)
@@ -320,7 +318,7 @@ Hello from
     ___________________________
     Got it. I've added this task:
     [T][ ] TWO
-    Now you have 71 tasks in the list.
+    Now you have 66 tasks in the list.
     ___________________________
     ___________________________
     Error: Deadline must have description and /by time.
@@ -343,17 +341,17 @@ Hello from
     ___________________________
     Got it. I've added this task:
     [T][ ] /by tomorrow
-    Now you have 72 tasks in the list.
+    Now you have 67 tasks in the list.
     ___________________________
     ___________________________
     Got it. I've added this task:
     [T][ ] /from 2pm
-    Now you have 73 tasks in the list.
+    Now you have 68 tasks in the list.
     ___________________________
     ___________________________
     Got it. I've added this task:
     [T][ ] /to 4pm
-    Now you have 74 tasks in the list.
+    Now you have 69 tasks in the list.
     ___________________________
     ___________________________
     Error: Deadline must have description and /by time.
