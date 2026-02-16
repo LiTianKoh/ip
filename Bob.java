@@ -33,17 +33,17 @@ public class Bob {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         ArrayList<Task> tasks = new ArrayList<>();
-        String line;
+        String userInput;
 
         Logo.printBob();     // To print the logo and the greeting
 
         do {
-            line = in.nextLine();
+            userInput = in.nextLine();
             System.out.println(SEPARATOR);
 
-            if (!line.equalsIgnoreCase("Bye")) {
+            if (!userInput.equalsIgnoreCase("Bye")) {
                 try {
-                    String[] parsed = BobExceptions.parseAndValidate(line);
+                    String[] parsed = BobExceptions.parseAndValidate(userInput);
                     String command = parsed[0];
 
                     switch (command) {
@@ -66,7 +66,7 @@ public class Bob {
                         handleMark(tasks, Integer.parseInt(parsed[1]), false);
                         break;
                     case "task":
-                        handleGenericTask(tasks, line);
+                        handleGenericTask(tasks, userInput);
                         break;
                     }
 
@@ -75,7 +75,7 @@ public class Bob {
                     System.out.println(SEPARATOR);
                 }
             }
-        } while (!line.toLowerCase().contains("bye"));
+        } while (!userInput.toLowerCase().contains("bye"));
 
         System.out.println(INDENT + "Bye. Hope to see you again soon!");
         System.out.println(SEPARATOR);
@@ -132,13 +132,13 @@ public class Bob {
         System.out.println(SEPARATOR);
     }
 
-    private static void handleGenericTask(ArrayList<Task> tasks, String line) {
+    private static void handleGenericTask(ArrayList<Task> tasks, String userInput) {
         // Use the class-level pattern instead of creating a new one
-        if (COMPLIMENT_PATTERN.matcher(line).find()) {
+        if (COMPLIMENT_PATTERN.matcher(userInput).find()) {
             System.out.println(INDENT + "Nonono, you are ;)");
         } else {
-            tasks.add(new Task(line));
-            System.out.println(INDENT + "added: " + line);
+            tasks.add(new Task(userInput));
+            System.out.println(INDENT + "added: " + userInput);
         }
         System.out.println(SEPARATOR);
     }
