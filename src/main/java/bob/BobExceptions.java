@@ -20,8 +20,8 @@ public class BobExceptions {
      * Parses and validates a line of input
      * Returns an array where first element is command type, rest are arguments
      */
-    public static String[] parseAndValidate(String line) throws IllegalArgumentException {
-        String trimmedLine = line.trim().toLowerCase();
+    public static String[] parseAndValidate(String userInput) throws IllegalArgumentException {
+        String trimmedLine = userInput.trim().toLowerCase();
 
         if (trimmedLine.isEmpty()) {
             throw new IllegalArgumentException("Error: Empty command.");
@@ -43,15 +43,15 @@ public class BobExceptions {
         }
 
         // Generic task
-        return new String[]{"task", line};
+        return new String[]{"task", userInput};
     }
 
-    private static String[] parseTodo(String line) {
-        if (line.equalsIgnoreCase("todo")) {
+    private static String[] parseTodo(String userInput) {
+        if (userInput.equalsIgnoreCase("todo")) {
             throw new IllegalArgumentException(TODO_EMPTY_DESCRIPTION);
         }
 
-        String description = line.substring(5).trim();
+        String description = userInput.substring(5).trim();
         if (description.isEmpty()) {
             throw new IllegalArgumentException(TODO_EMPTY_DESCRIPTION);
         }
@@ -59,12 +59,12 @@ public class BobExceptions {
         return new String[]{"todo", description};
     }
 
-    private static String[] parseDeadline(String line) {
-        if (line.equalsIgnoreCase("deadline")) {
+    private static String[] parseDeadline(String userInput) {
+        if (userInput.equalsIgnoreCase("deadline")) {
             throw new IllegalArgumentException(DEADLINE_INVALID_FORMAT);
         }
 
-        String rest = line.substring(9).trim();
+        String rest = userInput.substring(9).trim();
         String[] parts = rest.split(" /by ");
 
         if (parts.length < 2 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty()) {
@@ -74,8 +74,8 @@ public class BobExceptions {
         return new String[]{"deadline", parts[0].trim(), parts[1].trim()};
     }
 
-    private static String[] parseEvent(String line) {
-        if (line.equalsIgnoreCase("event")) {
+    private static String[] parseEvent(String userInput) {
+        if (userInput.equalsIgnoreCase("event")) {
             throw new IllegalArgumentException(EVENT_INVALID_FORMAT);
         }
 
@@ -90,12 +90,12 @@ public class BobExceptions {
         return new String[]{"event", parts[0].trim(), parts[1].trim(), parts[2].trim()};
     }
 
-    private static String[] parseMarkUnmark(String line, String command) {
-        if (line.equalsIgnoreCase(command)) {
+    private static String[] parseMarkUnmark(String userInput, String command) {
+        if (userInput.equalsIgnoreCase(command)) {
             throw new IllegalArgumentException(MISSING_TASK_NUMBER);
         }
 
-        String rest = line.substring(command.length()).trim();
+        String rest = userInput.substring(command.length()).trim();
         if (rest.isEmpty()) {
             throw new IllegalArgumentException(MISSING_TASK_NUMBER);
         }
