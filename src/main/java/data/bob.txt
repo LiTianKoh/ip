@@ -5,3 +5,4 @@ T | [ ] | do CS2113 weekly quiz
 D | [ ] | do CS2113 weekly quiz | 2359
 D | [ ] | do CS2113 weekly quiz | Friday 6/3/26 2359
 E | [ ] | sleep | 10am to 12pm
+

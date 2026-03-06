@@ -1,3 +1,6 @@
 ===================
 Taskings
 ===================
+T | [✓] | write
+E | [ ] | performance | 2pm to 4pm
+D | [ ] | hw | friday 5pm
