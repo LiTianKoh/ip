@@ -48,23 +48,19 @@ Displays a summary of all available commands.
 
 Syntax: `help`
 ```
-todo DESCRIPTION
-
-deadline DESCRIPTION /by DATE
-
-event DESCRIPTION /from START /to END
-
-list
-
-mark TASK_NUMBER
-
-unmark TASK_NUMBER
-
-delete TASK_NUMBER
-
-find KEYWORD
-
-bye
+help
+    ___________________________
+    Available commands:
+    - todo DESCRIPTION
+    - deadline DESCRIPTION /by DATE
+    - event DESCRIPTION /from START /to END
+    - list
+    - mark TASK_NUMBER
+    - unmark TASK_NUMBER
+    - delete TASK_NUMBER
+    - find KEYWORD
+    - bye
+    ___________________________
 ```
 ## 📝 Adding a todo task: `todo`
 Add a todo task without `time`/`date`\

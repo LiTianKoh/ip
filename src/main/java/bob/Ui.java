@@ -100,4 +100,20 @@ public class Ui {
         System.out.println(INDENT + "Nonono, you are ;)");
         showLine();
     }
+    /**
+     * Displays the help menu with all available commands.
+     */
+    public void showHelp() {
+        System.out.println(INDENT + "Available commands:");
+        System.out.println(INDENT + "- todo DESCRIPTION");
+        System.out.println(INDENT + "- deadline DESCRIPTION /by DATE");
+        System.out.println(INDENT + "- event DESCRIPTION /from START /to END");
+        System.out.println(INDENT + "- list");
+        System.out.println(INDENT + "- mark TASK_NUMBER");
+        System.out.println(INDENT + "- unmark TASK_NUMBER");
+        System.out.println(INDENT + "- delete TASK_NUMBER");
+        System.out.println(INDENT + "- find KEYWORD");
+        System.out.println(INDENT + "- bye");
+        showLine();
+    }
 }

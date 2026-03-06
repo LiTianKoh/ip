@@ -26,6 +26,8 @@ public class Parser {
             return new ListCommand();
         } else if (lowerCaseInput.equals("bye")) {
             return new ExitCommand();
+        } else if (lowerCaseInput.equals("help")) {
+          return new HelpCommand();
         } else if (lowerCaseInput.startsWith("todo")) {
             return parseTodo(trimmedInput);
         } else if (lowerCaseInput.startsWith("deadline")) {
