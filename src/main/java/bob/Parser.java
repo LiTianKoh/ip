@@ -103,16 +103,18 @@ public class Parser {
         // Split by " /by " to separate description and date
         String[] parts = args.split(" /by ");
 
+        // Check for too many parts (extra /by delimiters)
+        if (parts.length > 2) {
+            throw new BobException("Error: Deadline should have only one '/by' delimiter. " +
+                    "Found " + (parts.length - 1) + " delimiters.");
+        }
+
         if (parts.length < 2 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty()) {
             throw new BobException(BobExceptions.DEADLINE_INVALID_FORMAT);
         }
 
         String description = parts[0].trim();
         String byDate = parts[1].trim();
-
-        // For Level-8, you would parse the date here:
-        // LocalDateTime by = parseDateTime(byDate);
-        // return new AddCommand(new Deadline(description, by));
 
         return new AddCommand(new Deadline(description, byDate));
     }
@@ -130,9 +132,11 @@ public class Parser {
             throw new BobException(BobExceptions.EVENT_INVALID_FORMAT);
         }
 
-        // Split by " /from " and " /to " to separate description, start, and end
-        // First, split into description and the rest
+        // Split by " /from "
         String[] fromParts = args.split(" /from ");
+        if (fromParts.length > 2) {
+            throw new BobException("Error: Event should have only one '/from' delimiter.");
+        }
         if (fromParts.length < 2) {
             throw new BobException(BobExceptions.EVENT_INVALID_FORMAT);
         }
@@ -142,8 +146,11 @@ public class Parser {
             throw new BobException(BobExceptions.EVENT_INVALID_FORMAT);
         }
 
-        // Now split the remaining part by " /to "
+        // Split the rest by " /to "
         String[] toParts = fromParts[1].split(" /to ");
+        if (toParts.length > 2) {
+            throw new BobException("Error: Event should have only one '/to' delimiter.");
+        }
         if (toParts.length < 2) {
             throw new BobException(BobExceptions.EVENT_INVALID_FORMAT);
         }

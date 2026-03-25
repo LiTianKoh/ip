@@ -17,4 +17,10 @@ public class BobExceptions {
             "Error: Please specify a task number.";
     public static final String UNKNOWN_COMMAND =
             "Unknown command: '%s', Type 'help' to see available commands.";
+    public static final String DEADLINE_MULTIPLE_BY =
+            "Error: Deadline should have only one '/by' delimiter.";
+    public static final String EVENT_MULTIPLE_FROM =
+            "Error: Event should have only one '/from' delimiter.";
+    public static final String EVENT_MULTIPLE_TO =
+            "Error: Event should have only one '/to' delimiter.";
 }
