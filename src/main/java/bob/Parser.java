@@ -20,18 +20,33 @@ public class Parser {
             throw new BobException("Error: Empty command.");
         }
 
-        // Split into first word and the rest - strict tokenization!
+        // Split into first word and the rest
         String[] tokens = trimmedInput.split("\\s+", 2);
         String commandWord = tokens[0].toLowerCase();
         String arguments = tokens.length > 1 ? tokens[1] : "";
 
         switch (commandWord) {
         case "list":
+            // Reject any arguments for list command
+            if (!arguments.isEmpty()) {
+                throw new BobException("Error: 'list' command does not take any arguments.");
+            }
             return new ListCommand();
+
         case "bye":
+            // Reject any arguments for bye command
+            if (!arguments.isEmpty()) {
+                throw new BobException("Error: 'bye' command does not take any arguments.");
+            }
             return new ExitCommand();
+
         case "help":
+            // Reject any arguments for help command
+            if (!arguments.isEmpty()) {
+                throw new BobException("Error: 'help' command does not take any arguments.");
+            }
             return new HelpCommand();
+
         case "todo":
             return parseTodo(arguments);
         case "deadline":

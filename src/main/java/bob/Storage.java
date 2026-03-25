@@ -123,7 +123,7 @@ public class Storage {
      * @return A formatted string representing the task for file storage
      */
     private String taskToFileString(Task task) {
-        String status = task.isDone() ? "[✓]" : "[ ]";
+        String status = task.isDone() ? "[X]" : "[ ]";
 
         if (task instanceof Todo) {
             return String.format("T | %s | %s",
@@ -172,7 +172,7 @@ public class Storage {
         }
 
         String type = parts[0];
-        boolean isDone = parts[1].equals("[✓]");
+        boolean isDone = parts[1].equals("[X]");
 
         switch (type) {
         case "T":
