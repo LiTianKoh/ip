@@ -10,17 +10,22 @@ public class UnknownCommand extends Command {
     public UnknownCommand(String input) {
         this.input = input;
     }
-    
+
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws Exception {
+        // First check if it's a compliment (keep this fun feature)
         if (COMPLIMENT_PATTERN.matcher(input).find()) {
             ui.showComplimentResponse();
-        } else {
-            Task genericTask = new Task(input);
-            tasks.addTask(genericTask);
-            ui.showMessage("added: " + input);
-            ui.showLine();
-            storage.save(tasks.getAllTasks());
+            return;
         }
+
+        // Check if it's a help command without the prefix
+        if (input.trim().equalsIgnoreCase("help")) {
+            ui.showHelp();
+            return;
+        }
+
+        // For everything else, show error instead of creating task
+        ui.showError("Unknown command: '" + input + "'. Type 'help' to see available commands.");
     }
 }

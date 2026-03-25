@@ -31,6 +31,16 @@ public class Bob {
             ui.showLoadingError();
             tasks = new TaskList();
         }
+
+        // Add shutdown hook to save on Ctrl+C or program termination
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                storage.save(tasks.getAllTasks());
+                System.out.println("\n" + Ui.INDENT + "Tasks saved before exit.");
+            } catch (Exception e) {
+                System.out.println("\n" + Ui.INDENT + "Warning: Could not save tasks.");
+            }
+        }));
     }
 
     /**
@@ -44,6 +54,12 @@ public class Bob {
         while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
+
+                // Skip empty lines - this prevents the spam
+                if (fullCommand.trim().isEmpty()) {
+                    continue;
+                }
+
                 ui.showLine();
 
                 Command command = parser.parseCommand(fullCommand);
